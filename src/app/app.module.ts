@@ -2,21 +2,28 @@ import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ApiService } from './shared';
-import { routing } from './app.routing';
+//import { routing } from './app.routing';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'lazy', loadChildren: './lazy/lazy.module#LazyModule' }
+];
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
-    routing
+    RouterModule.forRoot(routes)
   ],
   declarations: [
     AppComponent,
@@ -26,7 +33,7 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
   providers: [
     ApiService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule {
   constructor(public appRef: ApplicationRef) {}

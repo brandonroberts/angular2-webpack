@@ -35,7 +35,7 @@ module.exports = function makeWebpackConfig() {
    */
   if (isProd) {
     config.devtool = 'source-map';
-  } 
+  }
   else if (isTest) {
     config.devtool = 'inline-source-map';
   }
@@ -62,7 +62,7 @@ module.exports = function makeWebpackConfig() {
    */
   config.output = isTest ? {} : {
     path: root('dist'),
-    publicPath: isProd ? '/' : 'http://localhost:8080/',
+    publicPath: isProd ? '/' : 'http://localhost:3000/',
     filename: isProd ? 'js/[name].[hash].js' : 'js/[name].js',
     chunkFilename: isProd ? '[id].[hash].chunk.js' : '[id].chunk.js'
   };
@@ -86,7 +86,7 @@ module.exports = function makeWebpackConfig() {
   if (isTest && !isTestWatch) {
     // awesome-typescript-loader needs to output inlineSourceMap for code coverage to work with source maps.
     atlOptions = 'inlineSourceMap=true&sourceMap=false';
-  } 
+  }
 
   /**
    * Loaders
@@ -100,7 +100,7 @@ module.exports = function makeWebpackConfig() {
       // Support for .ts files.
       {
         test: /\.ts$/,
-        loaders: ['awesome-typescript-loader?' + atlOptions, 'angular2-template-loader', '@angularclass/hmr-loader'],
+        loaders: ['@angularclass/hmr-loader', 'awesome-typescript-loader', 'angular2-template-loader', 'angular2-router-loader'],
         exclude: [isTest ? /\.(e2e)\.ts$/ : /\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
       },
 

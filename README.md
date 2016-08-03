@@ -39,7 +39,7 @@ $ npm install
 # start the server
 $ npm start
 ```
-go to [http://localhost:8080](http://localhost:8080) in your browser.
+go to [http://localhost:3000](http://localhost:3000) in your browser.
 
 # Table of Contents
 
@@ -74,7 +74,11 @@ After you have installed all dependencies you can now start developing with:
 
 * `npm start`
 
+<<<<<<< HEAD
 It will start a local server using `webpack-dev-server` which will watch, build (in-memory), and reload for you. The application can be checked at `http://localhost:8080`.
+=======
+It will start a local server using `webpack-dev-server` which will watch, build (in-memory), and reload for you. The port will be displayed to you as `http://localhost:3000`.
+>>>>>>> Example of lazy loaded module using the router
 
 As an alternative, you can work using Hot Module Replacement (HMR):
 

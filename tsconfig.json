@@ -1,16 +1,36 @@
 {
   "compilerOptions": {
     "target": "ES5",
+    "lib": ["es5", "dom"],
     "module": "commonjs",
+    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "noImplicitThis": false,
     "sourceMap": true,
-    "noEmitHelpers": true
+    "noEmitHelpers": true,
+    "strictNullChecks": false,
+    "allowJs": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "pretty": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": ["node_modules/@types"]
   },
   "compileOnSave": false,
   "buildOnSave": false,
+  "exclude": [
+    "theme",
+    "node_modules",
+    "_app",
+    "src/public/assets",
+    "vendor"
+  ],
   "awesomeTypescriptLoaderOptions": {
-    "forkChecker": true,
-    "useWebpackText": true
+    "forkChecker": false,
+    "useCache": true,
+    "useWebpackText": true,
+    "ignoreDiagnostics": []
   }
 }
